@@ -1,0 +1,26 @@
+[
+	{
+		"id": 4,
+		"timestamp": 1636504673259,
+		"products": [
+			{
+				"name": "Name2",
+				"price": 200,
+				"thumbnail": "thumbnail1",
+				"code": "code 1",
+				"stock": 20,
+				"timestamp": 1636504635614,
+				"id": 2
+			},
+			{
+				"name": "Name3",
+				"price": 200,
+				"thumbnail": "thumbnail1",
+				"code": "code 1",
+				"stock": 30,
+				"timestamp": 1636504641282,
+				"id": 3
+			}
+		]
+	}
+]
