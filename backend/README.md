@@ -1,5 +1,5 @@
-## para correr en consola:
-`cd clase3`
+## para correr el backend:
+`cd backend`
 
 `npm install`
 
