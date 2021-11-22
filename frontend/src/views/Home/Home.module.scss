@@ -1,0 +1,59 @@
+@import '../../styles/base.scss';
+@import '../../styles/base.scss';
+
+.Home {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-transform: center;
+    align-items: center;
+    align-items: flex-start;
+    text-align: left;
+    padding: 0 12em;
+    @include titleFont();
+    >div {
+        background-color: $primaryColor;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        clip-path: inset(0 60% 0 0);
+        z-index: -1;
+    }
+    >p {
+        text-transform: uppercase;
+        font-weight: 600;
+        letter-spacing: 0.5em;
+        font-size: .8em;
+        span {
+            display: block;
+        }
+    }
+    h1 {
+        font-size: 5em;
+        margin: 1em 0 0.6em;
+        line-height: .9;
+        @include titleFont();
+        span {
+            display: block;
+            @include titleFont();
+        }
+    }
+    >a {
+        text-transform: uppercase;
+        font-size: .9em;
+        font-weight: 700;
+        text-decoration: none;
+        border: 1px solid black;
+        padding: 1em 2.5em;
+        border-radius: 5em;
+        letter-spacing: 0.8px;
+    }
+    >img {
+        position: absolute;
+        width: 25%;
+        bottom: 0;
+        right: 4em;
+    }
+}

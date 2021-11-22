@@ -1,0 +1,57 @@
+@import "./../../styles/base.scss";
+
+.Button {
+    position: relative;
+    width: fit-content;
+    line-height: 1.7em;
+    border-bottom: 0.5px solid;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    font-weight: 700;
+    text-decoration: none;
+    border: 1px solid $secondaryColor;
+    padding: 1em 2.5em;
+    border-radius: 5em;
+    letter-spacing: 0.8px;
+    &.primary {
+        background-color: transparent;
+        &:hover{
+            background-color: $secondaryColor;
+            color: $primaryColor;
+            cursor: pointer;
+        }
+    }
+}
+@keyframes slide {
+    0% {
+        width: 25%;
+    }
+
+    50% {
+        width: 100%;
+    }
+
+    100% {
+        width: 40px;
+        right: 0;
+        left: 70%;
+    }
+}
+
+@keyframes slideOut {
+    0% {
+        width: 40px;
+        right: 0;
+        left: 100%;
+    }
+
+    50% {
+        width: 100%;
+    }
+
+    100% {
+        width: 40px;
+        left: 0;
+        right: 100%;
+    }
+}

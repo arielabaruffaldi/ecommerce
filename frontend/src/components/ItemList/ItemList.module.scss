@@ -1,0 +1,19 @@
+@import "../../styles/base.scss";
+
+.ItemList {
+  &--container {
+    width: 85%;
+    margin: auto;
+    margin-top: $heightNav;
+    margin-bottom: 4em;
+    min-height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &--wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 2em;
+  }
+}

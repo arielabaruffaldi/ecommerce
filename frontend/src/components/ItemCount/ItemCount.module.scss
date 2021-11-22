@@ -1,0 +1,42 @@
+@import "../../styles/base.scss";
+.itemCountWrapper {
+  display: flex;
+  flex-direction: column;
+  max-width: 15em;
+  align-items: center;
+  .itemCount {
+    display: flex;
+    align-items: center;
+    margin: 0.5em 0;
+    > p {
+      margin: 0 1em;
+      min-width: 1.5em;
+      text-align: center;
+      color: $primaryColor;
+      font-weight: 600;
+    }
+  }
+  button {
+    background: transparent;
+    border: 1px solid $primaryColor;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+    cursor: pointer;
+    svg {
+      width: 0.6em;
+      height: 0.6em;
+      fill: $primaryColor;
+    }
+    &:hover {
+      color: white;
+      background: $primaryColor;
+      transition: 400ms all;
+      svg {
+        fill: white;
+      }
+    }
+  }
+}
