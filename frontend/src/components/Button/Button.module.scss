@@ -13,13 +13,34 @@
     padding: 1em 2.5em;
     border-radius: 5em;
     letter-spacing: 0.8px;
+    background-color: transparent;
     &.primary {
         background-color: transparent;
-        &:hover{
+        &:hover {
             background-color: $secondaryColor;
             color: $primaryColor;
             cursor: pointer;
         }
+    }
+    &.secondary {
+        border: 1px solid $primaryColor;
+        color: $primaryColor;
+        &:hover {
+            background-color: $primaryColor;
+            color: white;
+            cursor: pointer;
+        }
+    }
+    &.tertiary {
+        padding: 0.6em 1em;
+        border: none;
+        width: fit-content;
+        border-radius: 100px;
+        grid-column: 2;
+        justify-self: end;
+        cursor: pointer;
+        font-weight: 600;
+        font-size: .9rem;
     }
 }
 @keyframes slide {

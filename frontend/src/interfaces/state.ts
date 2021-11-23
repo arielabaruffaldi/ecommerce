@@ -1,3 +1,4 @@
+import { Cart } from "./carts";
 import { Product } from "./products";
 
 interface ProductReducer{
@@ -5,13 +6,8 @@ interface ProductReducer{
     productDetail: Product
 }
 
-interface CartReducer{
-    count: number
-    cartItems: Product[]
-}
-
 
 export interface State {
     products: ProductReducer,
-    cart: CartReducer
+    cart: Cart
 }

@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 
-import cart from "./../../assets/icons/cart.svg";
+import cartImg from "./../../assets/icons/cart.svg";
 import search from "./../../assets/icons/search.svg";
 import styles from "./NavBar.module.scss";
-import { setCartItems } from '../../store/actions';
 import { State } from "../../interfaces/state";
 import { useSelector } from "react-redux";
 
@@ -25,7 +24,7 @@ const navItems = [
 
 const Navbar = () => {
     const [scrolled, setScrolled] = useState<boolean>(false);
-    const { cartItems } = useSelector((state: State) => state.cart);
+    const { items } = useSelector((state: State) => state.cart);
 
     const handleScroll = () => {
         const offset = window.scrollY;
@@ -35,6 +34,8 @@ const Navbar = () => {
             setScrolled(false);
         }
     };
+
+    console.log("items", items)
 
     useEffect(() => {
         window.addEventListener("scroll", handleScroll);
@@ -71,8 +72,8 @@ const Navbar = () => {
                     </li>
                     <li>
                         <NavLink to={"/cart"}>
-                            <img src={cart} alt="carrito" width="50" />
-                            <span>{cartItems.length}</span>
+                            <img src={cartImg} alt="carrito" width="50" />
+                            <span>{items?.length}</span>
                         </NavLink>
                     </li>
                 </ul>

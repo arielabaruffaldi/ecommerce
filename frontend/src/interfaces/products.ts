@@ -8,5 +8,6 @@ export interface Product {
     color: string
     thumbnail: string
     timestamp: number
+    quantity?: number
 }
 

@@ -7,7 +7,7 @@ import Button from './../../components/Button/Button';
 
 import { State } from '../../interfaces/state';
 
-import { getProductById, setCartItems } from '../../store/actions';
+import { getProductById, setCartItems, setCartId } from '../../store/actions';
 
 import styles from "./ItemDetail.module.scss";
 
@@ -17,26 +17,35 @@ const ItemDetail = () => {
     const [count, setCount] = useState<number>(0);
 
     const { productDetail: product } = useSelector((state: State) => state.products);
+    const { id: cartId } = useSelector((state: State) => state.cart);
 
     function onAdd(countComp: number) {
         setCount(countComp);
     }
+    console.log("cartId", cartId)
 
-    function onAddToCart() {
+    async function onAddToCart() {
+        if (!cartId) {
+            await dispatch(setCartId())
+        }
         dispatch(setCartItems({
-            img: product.thumbnail,
+            thumbnail: product.thumbnail,
             description: product.description,
-            title: product.name,
+            name: product.name,
             id: product.id,
             price: product.price,
-            count: count,
+            quantity: count,
+            code: product.code,
+            color: product.color,
+            stock: product.stock,
+            timestamp: Date.now()
         }))
     }
 
     useEffect(() => {
         id && dispatch(getProductById(id));
     }, [id])
-   
+
 
     return (
         <>
@@ -59,8 +68,9 @@ const ItemDetail = () => {
                     >
                         <Button
                             classes={styles.addToCart}
-                            disabled={count && count < 0 ? true : false}
+                            disabled={count === 10 || count === 0}
                             onClick={() => onAddToCart()}
+                            type="secondary"
                         >
                             agregar al carrito {count} {count === 1 ? `item` : `items`}
                         </Button>

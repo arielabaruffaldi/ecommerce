@@ -1,22 +1,23 @@
 import * as actionType from "../types";
 
 export const INITIAL_STATE = {
-    count: 0,
-    cartItems: [],
+    id: null,
+    items: []
 }
+
 
 const reducer = (state = INITIAL_STATE, action: any) => {
     switch (action.type) {
-        case actionType.SET_COUNT:
+        case actionType.SET_ID:
             return {
                 ...state,
-                count: action.payload,
-            };
-        case actionType.SET_CART_ITEMS:
+                id: action.payload
+            }
+        case actionType.SET_CART:
             return {
                 ...state,
-                cartItems: [...state.cartItems, action.payload],
-            };
+                items: [...state.items, action.payload]
+            }
         default:
             return state;
     }

@@ -5,5 +5,5 @@ export const ERROR = "ERROR";
 export const GET_PRODUCTS = "GET_PRODUCTS";
 export const GET_PRODUCT = "GET_PRODUCT";
 // CART
-export const SET_COUNT = "SET_COUNT";
-export const SET_CART_ITEMS = "SET_CART_ITEMS";
+export const SET_CART = "SET_CART";
+export const SET_ID = "SET_ID";

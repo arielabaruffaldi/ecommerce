@@ -7,6 +7,7 @@ import ItemDetail from './views/ItemDetail/ItemDetail';
 import Navbar from './components/Navbar/Navbar';
 
 import './App.scss';
+import Cart from './views/Cart/Cart';
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/item/:id" element={<ItemDetail />} />
+        <Route path="cart" element={<Cart />} />
       </Routes>
     </BrowserRouter>
   );
