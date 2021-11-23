@@ -17,17 +17,17 @@ export const setCartItems = (value: Product) => async (dispatch: any, getState: 
     const { cart } = getState();
     console.log("cart", cart)
     console.log("value", value)
-    try{
-        const res = await http.post(`carrito/${cart.id}/productos`, {products: [value.id]})
+    try {
+        const res = await http.post(`carrito/${cart.id}/productos`, { products: [value.id] })
         console.log(res)
         dispatch({
             type: actionTypes.SET_CART,
             payload: value,
         });
-    } catch(err){
+    } catch (err) {
         console.log("err", err)
     }
- 
+
 };
 
 /* export const deleteItemInCart = (id_cart: string, id_prod: string) => async (dispatch: any) => {
