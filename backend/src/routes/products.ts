@@ -26,8 +26,8 @@ router.get('/:id?', async (req: Request, res: Response) => {
 });
 
 router.post('/', isAdmin, async (req: Request, res: Response) => {
-    const { name, price, thumbnail, code, description, stock } = req.body
-    if (name && price && thumbnail) {
+    const { name, price, thumbnail, code, description, stock, color } = req.body
+    if (name && price && thumbnail && code && description && stock && color) {
         const request = await products.save({
             name,
             price,
@@ -39,7 +39,7 @@ router.post('/', isAdmin, async (req: Request, res: Response) => {
         })
         res.status(201).json(`se creó el producto con id: ${request}`)
     } else {
-        res.status(400).json(`Debe ingresar name, price, thumbnail, code, description y quantity`)
+        res.status(400).json(`Debe ingresar name && price && thumbnail && code && description && stock && color`)
     }
 });
 

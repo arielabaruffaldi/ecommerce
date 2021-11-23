@@ -59,16 +59,6 @@ example body:
 **POST**
 `http://localhost:8080/api/carrito`
 
-*products*: array of products id's
-
-example body:
-  <pre><code>
-    {
-        "products": [
-            1, 2, 3
-        ]
-    }
-    </pre></code>
 
 ----
 

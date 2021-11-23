@@ -9,14 +9,9 @@ const carts = new Carts(PUBLIC_PATH)
 const router = express.Router()
 
 router.post('/', async (req: Request, res: Response) => {
-    const {
-        products
-    } = req.body
     try {
-        const request = await carts.save({
-            products
-        })
-        res.status(201).json(`se creó el carrito con id: ${request}`)
+        const request = await carts.save()
+        res.status(201).json({ message: 'se creo correctamente el carrito', cartId: request })
     } catch (error) {
         let msg = (error as Error).message;
         return res.status(400).json({ error: msg });
@@ -51,6 +46,7 @@ router.get('/:id/productos', async (req: Request, res: Response) => {
 
 router.post('/:id/productos', async (req: Request, res: Response) => {
     const { body: { products }, params: { id } } = req
+    console.log("products", products)
     try {
         const request = await carts.updateCart(
             Number(id),

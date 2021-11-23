@@ -6,7 +6,7 @@ import Products from './Products'
 const PUBLIC_PATH = path.join(__dirname, './', 'products.txt')
 const products = new Products(PUBLIC_PATH)
 
-const getItemInArray = (data: Cart[], id: number) : any => {
+const getItemInArray = (data: Cart[], id: number): any => {
     return data.find((item: Cart) => item.id === id)
 }
 
@@ -17,27 +17,23 @@ class Carts {
         this.file = file;
     }
 
-    async save(cart: Cart): Promise<number> {
-        if (cart.products && cart.products.length > 0) {
-            let data = await getData(this.file)
-            const id = data.length + 1;
-            const productsPromise = cart.products.map(product => products.getById(product)
-            )
-            try {
-                const carts = await Promise.all(productsPromise)
-                const cart = {
-                    id: id,
-                    timestamp: Date.now(),
-                    products: [...carts]
-                }
-                await setData(this.file, [...data, cart])
-                return id
-            } catch (error) {
-                let msg = (error as Error).message
-                throw new Error(msg)
+    async save(): Promise<number> {
+        let data = await getData(this.file)
+        const id = data.length + 1;
+        // const productsPromise = cart.products.map(product => products.getById(product))
+        try {
+            // const carts = await Promise.all(productsPromise)
+            const cart = {
+                id: id,
+                timestamp: Date.now(),
+                products: []
             }
+            await setData(this.file, [...data, cart])
+            return id
+        } catch (error) {
+            let msg = (error as Error).message
+            throw new Error(msg)
         }
-        throw new Error("Debe ingresar un array de productos")
     }
 
     async getById(id: number): Promise<Cart> {

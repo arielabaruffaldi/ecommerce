@@ -1,6 +1,7 @@
 import express from 'express';
 import path from 'path'
 import router from './routes';
+import cors from 'cors';
 
 const PUBLIC_PATH = path.resolve(__dirname, '../public')
 const PORT = 8080;
@@ -18,6 +19,8 @@ server.on('error', (err) => {
 server.on('error', (err) => {
     console.log('ERROR =>', err);
 });
+
+app.use(cors());
 
 app.use(express.json());
 
