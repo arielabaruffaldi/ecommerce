@@ -28,14 +28,14 @@ router.get('/:id?', async (req: Request, res: Response) => {
 router.post('/', isAdmin, async (req: Request, res: Response) => {
     const { name, price, thumbnail, code, description, stock, color } = req.body
     if (name && price && thumbnail && code && description && stock && color) {
-        const request = await products.save({
+        const request = await products.addProduct({
             name,
             price,
             thumbnail,
             code,
             description,
             stock,
-            timestamp: Date.now(),
+            color
         })
         res.status(201).json(`se creó el producto con id: ${request}`)
     } else {

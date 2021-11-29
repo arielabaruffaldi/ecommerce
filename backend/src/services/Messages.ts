@@ -12,7 +12,6 @@ export default class Messages {
         message.date = moment().format('DD/MM/YYYY h:mm:ss a');
         const response = await knex("messages").insert(message)
         return response
-
     }
     public async getMessages(): Promise<Message[]> {
         try {

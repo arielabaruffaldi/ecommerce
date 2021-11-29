@@ -7,10 +7,11 @@ declare interface Cart {
 declare interface Product {
     name: string
     description: string
-    code: number
-    price: number
+    code: string
+    price: string
     thumbnail: string
     id?: number
-    timestamp: number
-    stock: number
+    timestamp?: string
+    stock: string
+    color: string
 }
