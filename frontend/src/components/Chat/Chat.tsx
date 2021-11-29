@@ -40,7 +40,7 @@ const Chat = ({ onClose }: ChatProps) => {
     }, [])
 
     const getData = async () => {
-        const { data } = await http.get('/messages/get')
+        const { data } = await http.get('/messages/')
         setMessages(data)
     }
 
@@ -52,7 +52,7 @@ const Chat = ({ onClose }: ChatProps) => {
     return (
         <>
             <form className={styles.Chat} onSubmit={handleSubmit}>
-                <FiX size={"1.5rem"} color={'var(--azul)'} className={styles.closeModal} onClick={onClose}>x</FiX>
+                <FiX size={"1.5rem"} color={'var(--secondary-color)'} className={styles.closeModal} onClick={onClose}>x</FiX>
                 <Input
                     customClass={styles.Input}
                     name="mail"
@@ -63,7 +63,7 @@ const Chat = ({ onClose }: ChatProps) => {
                     {messages.length > 0 && messages.map((msg, index) => {
                         return (
                             <div key={index}>
-                                <p><span className={'red'}>{msg.email}</span> <span className={'green'}> ({msg.date}) </span> <span className={'white'}>{msg.message}</span></p>
+                                <p><span className={styles['Chat--email']}>{msg.email}</span> <span className={styles['Chat--date']}> ({msg.date}) </span> <span className={styles['Chat--message']}>{msg.message}</span></p>
                             </div>
                         )
                     })}
@@ -73,7 +73,7 @@ const Chat = ({ onClose }: ChatProps) => {
                     name="message"
                     placeholder={"Mensaje"}
                     onChange={(e: EventInterface) => setForm(prevState => ({ ...prevState, message: e.target.value }))} />
-                <Button type="submit" disabled={!form.email} size={"10rem"}>
+                <Button variation="secondary" type="submit" disabled={!form.email} size={"10rem"}>
                     Enviar
                 </Button>
             </form>

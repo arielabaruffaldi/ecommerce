@@ -15,7 +15,9 @@ const Home = () => {
                     Redescubrí <span>tus espacios</span>
                 </h1>
                 <Button
-                    href="#test"
+                    href="plantas"
+                    tag="Link"
+                    variation="tertiary"
                 >
                     ver colección
                 </Button>

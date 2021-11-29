@@ -21,17 +21,17 @@ router.post('/new', (req: Request, res: Response) => {
 router.get(
     '/get',
     async (req: Request, res: Response, next: NextFunction): Promise<void> => {
-        try{
+        try {
             const response = await messages.getMessages()
             console.log("response---", response)
             res.json(response)
             next()
         }
-        catch(err){
+        catch (err) {
             console.log("error1", err)
         }
-        
-    })
 
+    }
+)
 
 export default router;
