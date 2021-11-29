@@ -1,11 +1,10 @@
-$primaryColor: #7dc75b;
-$secondaryColor: #2a392b;
-$lightGray: #f9f9f9;
+@import './variables.scss';
+
 $heightNav: 100px;
 
 // MIXINS
 @mixin titleFont {
-    font-family: 'Poppins', sans-serif;;
+    font-family: var(--font);
 }
 
 @mixin paragraphFont {

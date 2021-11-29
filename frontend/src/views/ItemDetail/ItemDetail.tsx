@@ -22,7 +22,6 @@ const ItemDetail = () => {
     function onAdd(countComp: number) {
         setCount(countComp);
     }
-    console.log("cartId", cartId)
 
     async function onAddToCart() {
         if (!cartId) {
@@ -70,7 +69,7 @@ const ItemDetail = () => {
                             classes={styles.addToCart}
                             disabled={count === 10 || count === 0}
                             onClick={() => onAddToCart()}
-                            type="secondary"
+                            variation="secondary"
                         >
                             agregar al carrito {count} {count === 1 ? `item` : `items`}
                         </Button>

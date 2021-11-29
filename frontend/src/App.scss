@@ -1,7 +1,9 @@
 @import "./styles/base.scss";
+@import "./styles/variables.scss";
+
 * {
   box-sizing: border-box;
-  color: $secondaryColor;
+  color: var(--secondary-color);
 }
 
 header {

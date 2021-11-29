@@ -12,13 +12,13 @@
       margin: 0 1em;
       min-width: 1.5em;
       text-align: center;
-      color: $primaryColor;
+      color: var(--primary-color);
       font-weight: 600;
     }
   }
   button {
     background: transparent;
-    border: 1px solid $primaryColor;
+    border: 1px solid var(--primary-color);
     border-radius: 100%;
     display: flex;
     justify-content: center;
@@ -28,11 +28,11 @@
     svg {
       width: 0.6em;
       height: 0.6em;
-      fill: $primaryColor;
+      fill: var(--primary-color);
     }
     &:hover {
       color: white;
-      background: $primaryColor;
+      background: var(--primary-color);
       transition: 400ms all;
       svg {
         fill: white;

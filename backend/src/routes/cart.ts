@@ -1,5 +1,5 @@
 import express, { Request, Response } from 'express';
-import Carts from './../Carts'
+import Carts from '../services/Carts'
 import path from 'path';
 
 const PUBLIC_PATH = path.join(__dirname, '../', 'carts.txt')
@@ -46,7 +46,6 @@ router.get('/:id/productos', async (req: Request, res: Response) => {
 
 router.post('/:id/productos', async (req: Request, res: Response) => {
     const { body: { products }, params: { id } } = req
-    console.log("products", products)
     try {
         const request = await carts.updateCart(
             Number(id),
@@ -64,8 +63,6 @@ router.delete('/:id/productos/:id_prod', async (req: Request, res: Response) => 
         params: { id, id_prod }
     } = req
     try {
-        console.log("id_prod", id_prod)
-        console.log("id", id)
         const response = await carts.deleteProdInCart(Number(id), Number(id_prod))
         res.json(response)
     } catch (error) {

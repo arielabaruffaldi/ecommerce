@@ -7,16 +7,17 @@ interface ItemProps extends Product {
     deleteAction?: () => void
 }
 
-const Item = ({ id, thumbnail, name, price, deleteAction }: ItemProps) => {
+const Item = ({ id, thumbnail, name, price, quantity, deleteAction }: ItemProps) => {
     return (
         <li className={styles.Item}>
-            <Link to={`/item/${id}`}>
+            <Link to={!deleteAction ? `/item/${id}` : ''}>
                 <img src={`${thumbnail}`} alt={name} />
                 <div className={styles.info}>
                     <h3>{name}</h3>
                     <p>{`$${price}`}</p>
+                    {quantity && <span>{`${quantity} u.`}</span>}
                 </div>
-                {deleteAction && <Button type="tertiary" onClick={deleteAction}>Eliminar</Button>}
+                {deleteAction && <Button variation="tertiary" onClick={deleteAction}>Eliminar</Button>}
             </Link>
         </li>
     )

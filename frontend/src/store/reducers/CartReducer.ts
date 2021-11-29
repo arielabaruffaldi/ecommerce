@@ -2,7 +2,7 @@ import * as actionType from "../types";
 
 export const INITIAL_STATE = {
     id: null,
-    items: []
+    products: []
 }
 
 
@@ -16,7 +16,7 @@ const reducer = (state = INITIAL_STATE, action: any) => {
         case actionType.SET_CART:
             return {
                 ...state,
-                items: [...state.items, action.payload]
+                products: action.payload
             }
         default:
             return state;

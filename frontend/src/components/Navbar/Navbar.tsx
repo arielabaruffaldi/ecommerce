@@ -24,7 +24,8 @@ const navItems = [
 
 const Navbar = () => {
     const [scrolled, setScrolled] = useState<boolean>(false);
-    const { items } = useSelector((state: State) => state.cart);
+    const { products } = useSelector((state: State) => state.cart);
+    let navbarClasses = ["navbar"];
 
     const handleScroll = () => {
         const offset = window.scrollY;
@@ -34,13 +35,11 @@ const Navbar = () => {
             setScrolled(false);
         }
     };
-
-    console.log("items", items)
-
+    
     useEffect(() => {
         window.addEventListener("scroll", handleScroll);
     });
-    let navbarClasses = ["navbar"];
+
     if (scrolled) {
         navbarClasses.push("scrolled");
     }
@@ -73,7 +72,7 @@ const Navbar = () => {
                     <li>
                         <NavLink to={"/cart"}>
                             <img src={cartImg} alt="carrito" width="50" />
-                            <span>{items?.length}</span>
+                            <span>{products?.length}</span>
                         </NavLink>
                     </li>
                 </ul>

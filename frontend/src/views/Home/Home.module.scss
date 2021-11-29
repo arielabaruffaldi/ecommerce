@@ -13,7 +13,7 @@
     padding: 0 12em;
     @include titleFont();
     >div {
-        background-color: $primaryColor;
+        background-color: var(--primary-color);
         height: 100%;
         width: 100%;
         position: absolute;

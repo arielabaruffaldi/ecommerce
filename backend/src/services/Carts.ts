@@ -1,5 +1,5 @@
-import getData from './utils/getData'
-import setData from './utils/setData'
+import getData from '../utils/getData'
+import setData from '../utils/setData'
 import path from 'path';
 import Products from './Products'
 
@@ -64,24 +64,15 @@ class Carts {
     async updateCart(id: number, body: number[]): Promise<any> {
         let data = await getData(this.file)
         const itemInArray: any = getItemInArray(data, id)
-        const productsPromise = body.map(product => products.getById(product)
-        )
-        try {
-            const product = await Promise.all(productsPromise)
-            if (itemInArray) {
-                itemInArray.products.push(...product)
-            }
-            const newData = data.filter((item: Product) => item.id !== id)
-            await setData(this.file, [...newData, itemInArray])
-
-            return itemInArray
-        } catch (error) {
-            let msg = (error as Error).message
-            throw new Error(msg)
+        if (itemInArray) {
+            itemInArray.products.push(...body)
         }
+        const newData = data.filter((item: Product) => item.id !== id)
+        await setData(this.file, [...newData, itemInArray])
+        return itemInArray
     }
 
-    async deleteProdInCart(cartId: number, productId: number): Promise<string> {
+    async deleteProdInCart(cartId: number, productId: number): Promise<Cart> {
         let data = await getData(this.file)
         const newData = data.filter((item: Product) => item.id !== cartId)
 
@@ -91,7 +82,7 @@ class Carts {
             const newCart = itemInCart.products.filter(item => item.id !== productId)
             itemInCart.products = newCart
             await setData(this.file, [...newData, itemInCart])
-            return `se eliminó correctamente el producto ${productId} del carrito ${cartId}`
+            return itemInCart
         } else {
             throw new Error(`carrito con id ${productId} no encontrado`)
         }

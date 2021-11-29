@@ -1,5 +1,5 @@
-import getData from './utils/getData'
-import setData from './utils/setData'
+import getData from '../utils/getData'
+import setData from '../utils/setData'
 
 const getItemInArray = (data: Product[], id: number | undefined) => {
     return data.find((item: Product) => item.id === id)

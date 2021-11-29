@@ -59,7 +59,7 @@ header {
           }
         }
         a {
-          color: $secondaryColor;
+          color: var(--secondary-color)olor;
           @include titleFont();
           text-decoration: none;
           display: flex;
@@ -89,7 +89,7 @@ header {
         li {
           padding: 0 1em;
           > a.activeCategory {
-            border-bottom: 1.5px solid $secondaryColor;
+            border-bottom: 1.5px solid var(--secondary-color)olor;
           }
         }
       }

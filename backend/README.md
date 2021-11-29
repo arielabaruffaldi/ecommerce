@@ -91,4 +91,4 @@ example body:
 
 #### Delete products in cart
 **DELETE**
-`http://localhost:8080/api/carrito/:id_cart/:id_prod`
+`http://localhost:8080/api/carrito/:id_cart/productos/:id_prod`

@@ -1,5 +1,5 @@
 import express, { Request, Response } from 'express';
-import Products from './../Products'
+import Products from './../services/Products'
 import path from 'path';
 import { isAdmin } from './../middlewares/isAdmin';
 

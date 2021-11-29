@@ -10,7 +10,6 @@ import styles from "./ItemList.module.scss";
 
 const ItemList = () => {
     const { products } = useSelector((state: State) => state.products);
-    console.log("products", products)
     const { id } = useParams();
     const dispatch = useDispatch();
 
