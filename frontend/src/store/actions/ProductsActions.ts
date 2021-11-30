@@ -16,6 +16,7 @@ export const getProducts = (query: string | undefined) => async (
     }))
     const queryParams = query ? `?q=${query}` : "";
     const { data } = await http.get(`/productos/${queryParams}`);
+    console.log("data", data)
     dispatch({
         type: actionTypes.GET_PRODUCTS,
         payload: data

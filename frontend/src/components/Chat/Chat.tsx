@@ -34,6 +34,7 @@ const Chat = ({ onClose }: ChatProps) => {
     useEffect(() => {
         //TODO: PASAR A REDUX EL STATE DE MENSAJES
         socket.on('messages', data => {
+            console.log("Mensajes recibidos: ", data);
             setMessages(data)
         });
         getData()
@@ -42,6 +43,7 @@ const Chat = ({ onClose }: ChatProps) => {
     const getData = async () => {
         const { data } = await http.get('/messages/')
         setMessages(data)
+        console.log("data msg", data)
     }
 
     const handleSubmit = async (e: React.FormEvent) => {
