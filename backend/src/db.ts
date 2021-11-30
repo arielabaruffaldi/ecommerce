@@ -16,7 +16,7 @@ const knex = Knex({
     }
 })
 
-knex.schema.createTableIfNotExists("messages", (table) => {
+/* knex.schema.createTableIfNotExists("messages", (table) => {
     table.increments("id").primary();
     table.string("email");
     table.string("message");
@@ -26,7 +26,7 @@ knex.schema.createTableIfNotExists("messages", (table) => {
     console.log("Tabla Creada!")
 }).catch((err) => {
     console.log("Error al crear la tabla", err)
-})
+}) */
 
 knex.schema.createTableIfNotExists("products", (table) => {
     table.increments("id").primary();
@@ -39,7 +39,6 @@ knex.schema.createTableIfNotExists("products", (table) => {
     table.string("stock");
     table.string("color");
 }).then((res) => {
-    // TODO: see how to handle this promise with async / await
     console.log("Tabla Creada!")
 }).catch((err) => {
     console.log("Error al crear la tabla", err)
