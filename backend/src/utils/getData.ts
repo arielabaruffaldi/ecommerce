@@ -6,7 +6,7 @@ const getData = async (file: string) => {
         if (readedFile.length) return await JSON.parse(readedFile)
         else return readedFile
     } catch (error) {
-        console.log("error--", error)
+        throw new error("Error while reading the file")
     }
 };
 

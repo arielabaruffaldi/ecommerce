@@ -6,7 +6,6 @@ const messages = new Messages()
 
 router.post('/new', (req: Request, res: Response) => {
     const body = req.body;
-    console.log("entro aca", body)
     if (!body.email || !body.message) {
         return res.status(400).json({
             error: 'Deben ingresar mail y mensaje'
@@ -23,12 +22,13 @@ router.get(
     async (req: Request, res: Response, next: NextFunction): Promise<void> => {
         try{
             const response = await messages.getMessages()
-            console.log("response---", response)
             res.json(response)
             next()
         }
         catch(err){
-            console.log("error1", err)
+            res.status(400).json({
+                error: 'Ocurrió un error al obtener los mensajes'
+            })
         }
         
     })

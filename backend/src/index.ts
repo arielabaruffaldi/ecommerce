@@ -18,10 +18,6 @@ server.on('error', (err) => {
     console.log('ERROR =>', err);
 });
 
-server.on('error', (err) => {
-    console.log('ERROR =>', err);
-});
-
 app.use(cors());
 
 app.use(express.json());

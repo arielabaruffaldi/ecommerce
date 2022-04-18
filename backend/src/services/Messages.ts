@@ -11,7 +11,6 @@ interface Message {
 const filePath = path.resolve(__dirname, '../messages.json');
 export default class Messages {
     public async addMessage(message: Message): Promise<Message> {
-        console.log("entro aca 2")
         try {
             const messages = await fsPromises.readFile(filePath, 'utf-8');
             const messagesJSON = JSON.parse(messages);
@@ -27,7 +26,7 @@ export default class Messages {
                 throw new Error('Error while sending the message');
             }
         } catch (e) {
-            console.log("erorrrr-", e)
+            throw new Error('Error while sending the message');
         }
         return message
     }
