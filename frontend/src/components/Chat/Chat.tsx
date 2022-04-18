@@ -3,8 +3,8 @@ import { socket } from './../../utils/socket';
 import Input from "../Input/Input"
 import Button from '../Button/Button';
 import styles from "./Chat.module.scss";
-import { FiX } from "react-icons/fi";
 import { http } from "./../../utils/axios";
+import Icon from '../Icon/Icon';
 
 interface Message {
     email: string,
@@ -52,7 +52,12 @@ const Chat = ({ onClose }: ChatProps) => {
     return (
         <>
             <form className={styles.Chat} onSubmit={handleSubmit}>
-                <FiX size={"1.5rem"} color={'var(--azul)'} className={styles.closeModal} onClick={onClose}>x</FiX>
+                <Icon
+                    name="Close"
+                    color='black'
+                    className={styles.closeButton}
+                    onClick={onClose}
+                />
                 <Input
                     customClass={styles.Input}
                     name="mail"
@@ -73,7 +78,7 @@ const Chat = ({ onClose }: ChatProps) => {
                     name="message"
                     placeholder={"Mensaje"}
                     onChange={(e: EventInterface) => setForm(prevState => ({ ...prevState, message: e.target.value }))} />
-                <Button type="submit" disabled={!form.email} size={"10rem"}>
+                <Button variation="contained" type="submit" disabled={!form.email} size={"10rem"}>
                     Enviar
                 </Button>
             </form>

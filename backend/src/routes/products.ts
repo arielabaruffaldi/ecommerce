@@ -8,7 +8,6 @@ const PUBLIC_PATH = path.join(__dirname, '../', 'products.txt')
 const router = express.Router()
 const products = new Products(PUBLIC_PATH)
 
-
 router.get('/:id?', async (req: Request, res: Response) => {
     const { id } = req.params
     if (id) {

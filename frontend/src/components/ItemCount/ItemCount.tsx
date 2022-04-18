@@ -1,7 +1,6 @@
+import Icon from "../Icon/Icon";
 import styles from "./ItemCount.module.scss";
 
-import AddIcon from "@material-ui/icons/Add";
-import RemoveIcon from "@material-ui/icons/Remove";
 
 
 const ItemCount = ({ addCount, removeCount, count, min, max, children }: any) => {
@@ -12,14 +11,14 @@ const ItemCount = ({ addCount, removeCount, count, min, max, children }: any) =>
           disabled={count === min}
           onClick={removeCount}
         >
-          <RemoveIcon />
+          <Icon name="Remove"/>
         </button>
         <p> {count} </p>
         <button
           disabled={count === max}
           onClick={addCount}
         >
-          <AddIcon />
+         <Icon name="Add"/>
         </button>
       </div>
       {children}
