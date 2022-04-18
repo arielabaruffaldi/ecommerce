@@ -18,7 +18,7 @@ interface ButtonProps {
 
 
 const Button = ({ tag = "button", variation = "primary", type = 'button', href, color = "", onClick, size, weight, disabled, children, classes, ...props }: ButtonProps) => {
-    let CustomTag: any = tag === 'Link' ? Link : tag;
+    let CustomTag: any = tag;
     return (
         <CustomTag
             className={

@@ -8,7 +8,6 @@ const PUBLIC_PATH = path.join(__dirname, '../', 'products.txt')
 const router = express.Router()
 const products = new Products(PUBLIC_PATH)
 
-
 router.get('/:id?', async (req: Request, res: Response) => {
     const { id } = req.params
     if (id) {
@@ -28,14 +27,14 @@ router.get('/:id?', async (req: Request, res: Response) => {
 router.post('/', isAdmin, async (req: Request, res: Response) => {
     const { name, price, thumbnail, code, description, stock, color } = req.body
     if (name && price && thumbnail && code && description && stock && color) {
-        const request = await products.addProduct({
+        const request = await products.save({
             name,
             price,
             thumbnail,
             code,
             description,
             stock,
-            color
+            timestamp: Date.now(),
         })
         res.status(201).json(`se creó el producto con id: ${request}`)
     } else {

@@ -1,7 +1,7 @@
-.Chat{
+.Chat {
     // width: fit-content;
-    background: var(--main-bg);
-    padding: 2rem;
+    background-color: white;
+    padding: 3rem;
     padding-top: 1rem;
     border-top-left-radius: 46px;
     height: 100vh;
@@ -10,35 +10,36 @@
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    width: 30%;
+    width: 35%;
     position: fixed;
     right: 0;
     top: 0;
-    box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.25);
-    .Input{
-        background-color: var(--primary-color);
+    box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.16);
+
+    .Input {
+        color: var(--secondary-color);
+        border: 1px solid var(--gray-color);
+        margin-top: 2rem;
     }
-    .MessagesContainer{
+
+    .MessagesContainer {
         height: 70%;
         overflow-y: scroll;
         padding: 1rem 2rem;
         margin-bottom: 3rem;
-        width: 100%;
     }
-    .closeModal{
+
+    .closeModal {
         cursor: pointer;
-        transform: translate(100%, -20%);
-        &:hover{
-        }
+        padding: 1rem;
+
+        &:hover {}
     }
-    &--email{
-        font-weight: 700;
-    }
-    &--date{
-        font-weight: 100;
-        font-size: .8rem;
-    }
-    &--message{
-        display: block;
+
+    .closeButton {
+        position: absolute;
+        top: .5rem;
+        right: .5rem;
+        cursor: pointer;
     }
 }

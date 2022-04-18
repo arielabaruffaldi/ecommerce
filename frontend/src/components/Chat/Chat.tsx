@@ -3,8 +3,8 @@ import { socket } from './../../utils/socket';
 import Input from "../Input/Input"
 import Button from '../Button/Button';
 import styles from "./Chat.module.scss";
-import { FiX } from "react-icons/fi";
 import { http } from "./../../utils/axios";
+import Icon from '../Icon/Icon';
 
 interface Message {
     email: string,
@@ -34,16 +34,14 @@ const Chat = ({ onClose }: ChatProps) => {
     useEffect(() => {
         //TODO: PASAR A REDUX EL STATE DE MENSAJES
         socket.on('messages', data => {
-            console.log("Mensajes recibidos: ", data);
             setMessages(data)
         });
         getData()
     }, [])
 
     const getData = async () => {
-        const { data } = await http.get('/messages/')
+        const { data } = await http.get('/messages/get')
         setMessages(data)
-        console.log("data msg", data)
     }
 
     const handleSubmit = async (e: React.FormEvent) => {
@@ -54,7 +52,12 @@ const Chat = ({ onClose }: ChatProps) => {
     return (
         <>
             <form className={styles.Chat} onSubmit={handleSubmit}>
-                <FiX size={"1.5rem"} color={'var(--secondary-color)'} className={styles.closeModal} onClick={onClose}>x</FiX>
+                <Icon
+                    name="Close"
+                    color='black'
+                    className={styles.closeButton}
+                    onClick={onClose}
+                />
                 <Input
                     customClass={styles.Input}
                     name="mail"
@@ -65,7 +68,7 @@ const Chat = ({ onClose }: ChatProps) => {
                     {messages.length > 0 && messages.map((msg, index) => {
                         return (
                             <div key={index}>
-                                <p><span className={styles['Chat--email']}>{msg.email}</span> <span className={styles['Chat--date']}> ({msg.date}) </span> <span className={styles['Chat--message']}>{msg.message}</span></p>
+                                <p><span className={'red'}>{msg.email}</span> <span className={'green'}> ({msg.date}) </span> <span className={'white'}>{msg.message}</span></p>
                             </div>
                         )
                     })}
@@ -75,7 +78,7 @@ const Chat = ({ onClose }: ChatProps) => {
                     name="message"
                     placeholder={"Mensaje"}
                     onChange={(e: EventInterface) => setForm(prevState => ({ ...prevState, message: e.target.value }))} />
-                <Button variation="secondary" type="submit" disabled={!form.email} size={"10rem"}>
+                <Button variation="contained" type="submit" disabled={!form.email} size={"10rem"}>
                     Enviar
                 </Button>
             </form>

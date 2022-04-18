@@ -1,0 +1,3 @@
+- implementar variables de entorno
+
+- crear una variable booleana administrador, cuyo valor configuraremos más adelante con el sistema de login. Según su valor( true o false ) me permitirá alcanzar o no las rutas indicadas. En el caso de recibir un request a una ruta no permitida por el perfil, devolver un objeto de error. Ejemplo: {error: -1, descripción: ruta 'x' método 'y' no autorizada}

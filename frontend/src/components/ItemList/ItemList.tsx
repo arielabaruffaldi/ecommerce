@@ -14,6 +14,7 @@ const ItemList = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
+        console.log(id)
         dispatch(getProducts(id));
     }, [id]);
 

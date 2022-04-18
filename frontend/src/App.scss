@@ -7,6 +7,7 @@
 }
 
 header {
+
   &.scrolled,
   &:hover {
     background-color: white;
@@ -56,6 +57,7 @@ header {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -63,11 +65,13 @@ header {
 
 input,
 button {
+
   &:focus,
   &:active {
     outline: none;
   }
 }
+
 button {
   transition: 300ms all;
 }
@@ -75,4 +79,54 @@ button {
 button:disabled {
   pointer-events: none;
   opacity: 0.5;
+}
+
+.openChat {
+  background-color: var(--primary-color);
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  min-width: 200px;
+  border-radius: 40px;
+  padding: .5rem 2rem;
+  text-align: center;
+  z-index: 99999;
+  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.1);
+  transition: 300ms all;
+
+  &:hover {
+    box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.16);
+    transition: 300ms all;
+  }
+
+  p {
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: .1rem;
+    font-size: .9rem;
+    color: white;
+  }
+}
+
+
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+  scrollbar-width: auto;
+  scrollbar-color: #d3cdd5 #ffffff;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #d3cdd5;
+  border-radius: 10px;
+  border: 3px solid #ffffff;
 }

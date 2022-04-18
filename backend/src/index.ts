@@ -3,9 +3,7 @@ import path from 'path'
 import router from './routes';
 import cors from 'cors';
 import { initWsServer } from './services/socket';
-// import knex from './db'
-const knex = require("./db")
-const knexSqlite = require('./../knexfile');
+
 
 const PUBLIC_PATH = path.resolve(__dirname, '../public')
 const PORT = 8080;
